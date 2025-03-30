@@ -1,9 +1,9 @@
 import { View, StyleSheet, Text } from "react-native";
 
-export default CalculatorButton = ({ char }) => {
+export default CalculatorButton = ({ char, backgroundcolor = "#393939", textcolor = "#ffffff" }) => {
     return (
-        <View style={styles.button}>
-            <Text style={styles.buttonchar}>{char}</Text>
+        <View style={[styles.button, { backgroundColor: backgroundcolor }]}>
+            <Text style={[styles.buttonchar, { color: textcolor }]}>{char}</Text>
         </View>
     );
 }
@@ -11,14 +11,12 @@ export default CalculatorButton = ({ char }) => {
 const styles = StyleSheet.create({
     buttonchar: {
         fontSize: 24,
-        color: '#ffffff',
     },
 
     button: {
         flex: 1,
         margin: 5,
         aspectRatio: 1,
-        backgroundColor: '#393939',
         borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
