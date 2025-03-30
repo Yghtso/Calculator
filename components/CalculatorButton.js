@@ -10,7 +10,7 @@ export default CalculatorButton = ({ char, backgroundcolor = "#393939", textcolo
 
 const styles = StyleSheet.create({
     buttonchar: {
-        fontSize: 24,
+        fontSize: 29,
     },
 
     button: {
