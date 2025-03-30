@@ -6,28 +6,28 @@ export default CalculatorKeyboard = () => {
     return (
         <View style={styles.keyboard}>
             <View style={styles.row}>
-                <CalculatorButton char={'C'} />
-                <CalculatorButton char={'⌫'} />
-                <CalculatorButton char={'%'} />
-                <CalculatorButton char={'/'} />
+                <CalculatorButton char={'C'} backgroundcolor="#ffffff" textcolor="#000000" />
+                <CalculatorButton char={'⌫'} backgroundcolor="#ffffff" textcolor="#000000" />
+                <CalculatorButton char={'%'} backgroundcolor="#ffffff" textcolor="#000000" />
+                <CalculatorButton char={'/'} backgroundcolor="orange" textcolor="#000000" />
             </View>
             <View style={styles.row}>
                 <CalculatorButton char={'7'} />
                 <CalculatorButton char={'8'} />
                 <CalculatorButton char={'9'} />
-                <CalculatorButton char={'*'} />
+                <CalculatorButton char={'*'} backgroundcolor="orange" textcolor="#000000" />
             </View>
             <View style={styles.row}>
                 <CalculatorButton char={'4'} />
                 <CalculatorButton char={'5'} />
                 <CalculatorButton char={'6'} />
-                <CalculatorButton char={'+'} />
+                <CalculatorButton char={'+'} backgroundcolor="orange" textcolor="#000000" />
             </View>
             <View style={styles.row}>
                 <CalculatorButton char={'1'} />
                 <CalculatorButton char={'2'} />
                 <CalculatorButton char={'3'} />
-                <CalculatorButton char={'-'} />
+                <CalculatorButton char={'-'} backgroundcolor="orange" textcolor="#000000" />
             </View>
 
         </View>
@@ -40,12 +40,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
         justifyContent: 'space-evenly',
         padding: 5,
-        height: "60%",
+        height: "55%",
     },
 
     row: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-        marginVertical: 5,
     },
 });
