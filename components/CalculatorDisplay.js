@@ -11,7 +11,7 @@ export default CalculatorDisplay = () => {
 
 const styles = StyleSheet.create({
     displayContainer: {
-        height: "40%",
+        height: "45%",
         backgroundColor: '#000000',
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
