@@ -1,24 +1,24 @@
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default CalculatorButton = ({ char, backgroundcolor = "#393939", textcolor = "#ffffff" }) => {
+export default CalculatorButton = ({ char, backgroundcolor = "#393939", textcolor = "#ffffff", onPress }) => {
     return (
-        <View style={[styles.button, { backgroundColor: backgroundcolor }]}>
+        <TouchableOpacity onPress={() => onPress(char)} style={[styles.button, { backgroundColor: backgroundcolor }]}>
             <Text style={[styles.buttonchar, { color: textcolor }]}>{char}</Text>
-        </View>
+        </TouchableOpacity>
     );
 }
 
 const styles = StyleSheet.create({
     buttonchar: {
-        fontSize: 29,
+        fontSize: 33,
     },
 
     button: {
         flex: 1,
-        margin: 5,
         aspectRatio: 1,
+        margin: 5,
         borderRadius: 8,
         justifyContent: 'center',
         alignItems: 'center',
-    },
+    }
 });
