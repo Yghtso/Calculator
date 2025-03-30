@@ -6,9 +6,9 @@ export default CalculatorKeyboard = () => {
     return (
         <View style={styles.keyboard}>
             <View style={styles.row}>
-                <CalculatorButton char={'C'} backgroundcolor="#ffffff" textcolor="#000000" />
+                <CalculatorButton char={'='} backgroundcolor="#1368fd" textcolor="#000000" />
                 <CalculatorButton char={'⌫'} backgroundcolor="#ffffff" textcolor="#000000" />
-                <CalculatorButton char={'%'} backgroundcolor="#ffffff" textcolor="#000000" />
+                <CalculatorButton char={'C'} backgroundcolor="#ffffff" textcolor="#000000" />
                 <CalculatorButton char={'/'} backgroundcolor="orange" textcolor="#000000" />
             </View>
             <View style={styles.row}>
