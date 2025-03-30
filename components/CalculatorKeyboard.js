@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
         justifyContent: 'space-evenly',
         padding: 5,
-        height: "70%",
+        height: "60%",
     },
 
     row: {
