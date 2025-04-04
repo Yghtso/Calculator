@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import CalculatorButton from "./CalculatorButton";
 
-export default CalculatorKeyboard = ({ inputText, setInputText }) => {
+export default CalculatorKeyboard = ({ inputText, setInputText, setResultText}) => {
 
     const handleButtonPress = (char) => {
 
