@@ -14,7 +14,7 @@ export default App = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="black" />
       <CalculatorDisplay inputText={inputText} resultText={resultText} />
-      <CalculatorKeyboard inputText={inputText} setInputText={setInputText} />
+      <CalculatorKeyboard inputText={inputText} setInputText={setInputText} setResultText={setResultText}/>
     </SafeAreaView>
   );
 }
