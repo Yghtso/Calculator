@@ -1,7 +1,8 @@
 import React, { useRef, useEffect } from "react";
 import { Text, StyleSheet, View, ScrollView } from "react-native";
 
-export default CalculatorDisplay = ({ inputText }) => {
+export default CalculatorDisplay = ({ inputText , resultText}) => {
+
     const scrollViewRef = useRef(null);
 
     useEffect(() => {
@@ -28,7 +29,7 @@ export default CalculatorDisplay = ({ inputText }) => {
 
 const styles = StyleSheet.create({
     displayContainer: {
-        height: "40%",
+        height: "30%",
         backgroundColor: '#000000',
         justifyContent: 'flex-end',
         alignItems: 'flex-end',
