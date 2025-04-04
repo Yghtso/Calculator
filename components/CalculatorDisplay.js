@@ -3,11 +3,13 @@ import { Text, StyleSheet, View, ScrollView } from "react-native";
 
 export default CalculatorDisplay = ({ inputText , resultText}) => {
 
-    const scrollViewRef = useRef(null);
+    const scrollViewRefExpr = useRef(null);
+    const scrollViewRefRes = useRef(null);
 
     useEffect(() => {
-        if (scrollViewRef.current) {
-            scrollViewRef.current.scrollToEnd({ animated: true });
+        if (scrollViewRefExpr.current && scrollViewRefRes.current) {
+            scrollViewRefExpr.current.scrollToEnd({ animated: true });
+            scrollViewRefRes.current.scrollToEnd({ animated: true });
         }
     }, [inputText]);
 
@@ -15,13 +17,22 @@ export default CalculatorDisplay = ({ inputText , resultText}) => {
     return (
         <View style={styles.displayContainer}>
             <ScrollView
-                ref={scrollViewRef}
-                style={styles.scrollView}
+                ref={scrollViewRefExpr}
+                style={{flex : 3}}
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.scrollContainer}
             >
                 <Text style={styles.expressionText}>{inputText}</Text>
+            </ScrollView>
+            <ScrollView
+                ref={scrollViewRefRes}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                contentContainerStyle={styles.scrollContainer}
+                style={{flex : 1}}
+            >
+                <Text style={styles.resultText}>{inputText}</Text>
             </ScrollView>
         </View>
     );
@@ -35,9 +46,6 @@ const styles = StyleSheet.create({
         alignItems: 'flex-end',
         padding: 20,
     },
-    scrollView: {
-        flex: 1,
-    },
     scrollContainer: {
         flexGrow: 1,
         justifyContent: 'flex-end',
@@ -45,7 +53,12 @@ const styles = StyleSheet.create({
     },
     expressionText: {
         fontSize: 60,
-        color: '#fff',
+        color: 'white',
+        fontWeight: 'bold',
+    },
+    resultText: {
+        fontSize: 30,
+        color: 'gray',
         fontWeight: 'bold',
     },
 });
