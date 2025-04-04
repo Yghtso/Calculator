@@ -31,9 +31,15 @@ export default CalculatorKeyboard = ({ inputText, setInputText }) => {
     return (
         <View style={styles.keyboard}>
             <View style={styles.row}>
+                <CalculatorButton char={'M+'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
+                <CalculatorButton char={'M-'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
+                <CalculatorButton char={'RC'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
+                <CalculatorButton char={'MC'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
+            </View>
+            <View style={styles.row}>
                 <CalculatorButton char={'.'} backgroundcolor="white" textcolor="#000000" onPress={handleButtonPress} />
-                <CalculatorButton char={'⌫'} backgroundcolor="#ffffff" textcolor="#000000" onPress={handleButtonPress} />
-                <CalculatorButton char={'C'} backgroundcolor="#ffffff" textcolor="#000000" onPress={handleButtonPress} />
+                <CalculatorButton char={'⌫'} backgroundcolor="white" textcolor="#000000" onPress={handleButtonPress} />
+                <CalculatorButton char={'C'} backgroundcolor="white" textcolor="#000000" onPress={handleButtonPress} />
                 <CalculatorButton char={'/'} backgroundcolor="orange" textcolor="#000000" onPress={handleButtonPress} />
             </View>
             <View style={styles.row}>
