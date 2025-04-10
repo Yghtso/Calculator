@@ -17,7 +17,7 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
 
             case "⌫":
                 newExpr = inputText.slice(0, -1);
-                newResult = inputText.slice(0, -1);
+                newResult = solveExpr(newExpr);
                 break;
 
             case "=":
@@ -37,6 +37,8 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
                 break;
 
             case "RC":
+                newExpr = inputText;
+                newResult = inputText;
                 break;
 
             case "MC":
@@ -46,6 +48,7 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
 
             default:
                 newExpr = inputText + char;
+                newResult = solveExpr(newExpr);
                 break;
         }
 
