@@ -36,7 +36,7 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
                 newResult = inputText;
                 break;
 
-            case "RC":
+            case "RM":
                 newExpr = inputText;
                 newResult = inputText;
                 break;
@@ -48,7 +48,8 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
 
             default:
                 newExpr = inputText + char;
-                newResult = solveExpr(newExpr);
+                console.log("Nuovo risultato " + solveExpr(newExpr));
+                setResultText(solveExpr(newExpr));
                 break;
         }
 
@@ -62,7 +63,7 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
             <View style={styles.row}>
                 <CalculatorButton char={'M+'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
                 <CalculatorButton char={'M-'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
-                <CalculatorButton char={'RC'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
+                <CalculatorButton char={'RM'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
                 <CalculatorButton char={'MC'} backgroundcolor="#02bf08" textcolor="#000000" onPress={handleButtonPress} />
             </View>
             <View style={styles.row}>
