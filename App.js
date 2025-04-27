@@ -23,15 +23,15 @@ export default App = () => {
       return "Syntax Error";
     }
     console.log(tokenizedExpr);
-    let parsedExpr;
     
     try {
-      parsedExpr = parse(tokenizedExpr);
+      parse(tokenizedExpr);
     } catch (syntaxError) {
       return "Semantic Error";
     }
 
-    //const postFixExpr = toPostFixNotation(parsedExpr);
+    const postFixExpr = toPostFixNotation(tokenizedExpr);
+    console.log(postFixExpr);
     //const result = calculatePostFix(postFixExpr);
     return 0;
   }

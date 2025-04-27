@@ -1,31 +1,65 @@
-import { TokenType, tokenize } from "./Tokenizer";
+import { TokenType } from "./Tokenizer";
 
-function toPostFixNotation(tokenizedMathExpr) {
+export default function toPostFixNotation(tokens) {
+  const outputQueue = [];
+  const opStack = [];
 
-    const outputQueue = [];
-    const operatorStack = [];
+  const prec = { '+': 1, '-': 1, '*': 2, '/': 2 };
+  const assoc = { '+': 'left', '-': 'left', '*': 'left', '/': 'left' };
 
-    for (const token of tokenizedMathExpr) {
+  for (const token of tokens) {
+    const { type, value } = token;
 
-        if (!isNaN(token)) { outputQueue.push(token); }
+    if (type === TokenType.NUMBER) {
+      outputQueue.push(token);
 
-        else if (token in operators) {
-
-            while (operatorStack.length && operatorStack.at(-1) !== '(' && operators[token] <= operators[operatorStack.at(-1)]) {
-                outputQueue.push(operatorStack.pop());
-            }
-
-            operatorStack.push(token);
-
+    } else if (type === TokenType.OPERATOR) {
+      while (
+        opStack.length > 0 &&
+        opStack[opStack.length - 1].type === TokenType.OPERATOR
+      ) {
+        const topOp = opStack[opStack.length - 1].value;
+        if (
+          (assoc[value] === 'left' && prec[value] <= prec[topOp]) ||
+          (assoc[value] === 'right' && prec[value] < prec[topOp])
+        ) {
+          outputQueue.push(opStack.pop());
+        } else {
+          break;
         }
+      }
+      opStack.push(token);
 
-        else if (token === '.') { outputQueue.push(token) };
+    } else if (type === TokenType.LPAREN) {
+      opStack.push(token);
+
+    } else if (type === TokenType.RPAREN) {
+      while (
+        opStack.length > 0 &&
+        opStack[opStack.length - 1].type !== TokenType.LPAREN
+      ) {
+        outputQueue.push(opStack.pop());
+      }
+      if (
+        opStack.length === 0 ||
+        opStack[opStack.length - 1].type !== TokenType.LPAREN
+      ) {
+        throw new Error("Mismatched parentheses");
+      }
+      opStack.pop();
+
+    } else {
+      throw new Error(`Unknown token type: ${type}`);
     }
+  }
 
-    while (operatorStack.length) { outputQueue.push(operatorStack.pop()); }
+  while (opStack.length > 0) {
+    const op = opStack.pop();
+    if (op.type === TokenType.LPAREN || op.type === TokenType.RPAREN) {
+      throw new Error("Mismatched parentheses");
+    }
+    outputQueue.push(op);
+  }
 
-    return outputQueue;
-
-};
-
-export default toPostFixNotation;
+  return outputQueue;
+}
