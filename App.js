@@ -6,14 +6,34 @@ import { StatusBar } from 'react-native';
 import toPostFixNotation from './MathLogic/Shunting-Yard';
 import calculatePostFix from './MathLogic/PostFixSolver';
 
+import { tokenize } from './MathLogic/Tokenizer';
+import { parse } from './MathLogic/Parser';
+
 export default App = () => {
   const [inputText, setInputText] = useState("");
   const [resultText, setResultText] = useState("");
 
   const solveExpr = (expr) => {
-    let postFixExpr = toPostFixNotation(expr);
-    let result = calculatePostFix(postFixExpr);
-    return result;
+
+    let tokenizedExpr;
+
+    try {
+      tokenizedExpr = tokenize(expr);
+    } catch (syntaxError) {
+      return "Syntax Error";
+    }
+    console.log(tokenizedExpr);
+    let parsedExpr;
+    
+    try {
+      parsedExpr = parse(tokenizedExpr);
+    } catch (syntaxError) {
+      return "Semantic Error";
+    }
+
+    //const postFixExpr = toPostFixNotation(parsedExpr);
+    //const result = calculatePostFix(postFixExpr);
+    return 0;
   }
 
   const [memory, setMemory] = useState(0);

@@ -1,18 +1,11 @@
-function toPostFixNotation(mathExpr) {
+import { TokenType, tokenize } from "./Tokenizer";
 
-    const operators = {
-        ')': 3,
-        '*': 2,
-        '/': 2,
-        '+': 1,
-        '-': 1,
-        '(': 0,
-    };
+function toPostFixNotation(tokenizedMathExpr) {
 
     const outputQueue = [];
     const operatorStack = [];
 
-    for (const token of mathExpr) {
+    for (const token of tokenizedMathExpr) {
 
         if (!isNaN(token)) { outputQueue.push(token); }
 

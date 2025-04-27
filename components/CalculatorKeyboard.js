@@ -48,8 +48,7 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
 
             default:
                 newExpr = inputText + char;
-                console.log("Nuovo risultato " + solveExpr(newExpr));
-                setResultText(solveExpr(newExpr));
+                newResult = solveExpr(newExpr);
                 break;
         }
 

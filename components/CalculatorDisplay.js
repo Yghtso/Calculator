@@ -32,7 +32,7 @@ export default CalculatorDisplay = ({ inputText , resultText}) => {
                 contentContainerStyle={styles.scrollContainer}
                 style={{flex : 1}}
             >
-                <Text style={styles.resultText}>{inputText}</Text>
+                <Text style={styles.resultText}>{resultText}</Text>
             </ScrollView>
         </View>
     );
