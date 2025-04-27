@@ -11,8 +11,8 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
         switch (char) {
 
             case "C":
-                newExpr = "";
-                newResult = "";
+                newExpr = '';
+                newResult = '';
                 break;
 
             case "⌫":
@@ -21,29 +21,28 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
                 break;
 
             case "=":
-                let result = solveExpr(inputText);
-                newExpr = result;
-                newResult = result;
+                newResult = solveExpr(inputText);
+                newExpr = newResult;
                 break;
 
             case "M+":
-                newExpr = inputText;
-                newResult = inputText;
+                newExpr = '';
+                newResult = '';
                 break;
 
             case "M-":
-                newExpr = inputText;
-                newResult = inputText;
+                newExpr = '';
+                newResult = '';
                 break;
 
             case "RM":
-                newExpr = inputText;
-                newResult = inputText;
+                newExpr = '';
+                newResult = '';
                 break;
 
             case "MC":
-                newExpr = inputText;
-                newResult = inputText;
+                newExpr = '';
+                newResult = '';
                 break;
 
             default:

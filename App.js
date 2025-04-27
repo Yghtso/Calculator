@@ -20,20 +20,19 @@ export default App = () => {
     try {
       tokenizedExpr = tokenize(expr);
     } catch (syntaxError) {
-      return "Syntax Error";
+      return syntaxError.message;
     }
-    console.log(tokenizedExpr);
     
     try {
       parse(tokenizedExpr);
-    } catch (syntaxError) {
-      return "Semantic Error";
+    } catch (semanticError) {
+      return semanticError.message;
     }
 
     const postFixExpr = toPostFixNotation(tokenizedExpr);
     console.log(postFixExpr);
-    //const result = calculatePostFix(postFixExpr);
-    return 0;
+    const result = calculatePostFix(postFixExpr);
+    return result;
   }
 
   const [memory, setMemory] = useState(0);
