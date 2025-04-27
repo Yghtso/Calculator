@@ -45,5 +45,5 @@ export default function calculatePostFix(postFixExpr) {
     }
   }
 
-  return stack[0].toString();
+  return stack[0];
 }

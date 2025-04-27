@@ -1,12 +1,12 @@
 import { StyleSheet, View } from "react-native";
 import CalculatorButton from "./CalculatorButton";
 
-export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, solveExpr }) => {
+export default CalculatorKeyboard = ({ inputText, setInputText, resultText, setResultText, solveExpr, memory, setMemory }) => {
 
     const handleButtonPress = (char) => {
 
-        let newExpr;
-        let newResult;
+        let newExpr = inputText;
+        let newResult = resultText;
 
         switch (char) {
 
@@ -17,37 +17,34 @@ export default CalculatorKeyboard = ({ inputText, setInputText, setResultText, s
 
             case "⌫":
                 newExpr = inputText.slice(0, -1);
-                newResult = solveExpr(newExpr);
+                newResult = solveExpr(newExpr).toString();
                 break;
 
             case "=":
-                newResult = solveExpr(inputText);
+                newResult = solveExpr(inputText).toString();
                 newExpr = newResult;
                 break;
 
             case "M+":
-                newExpr = '';
-                newResult = '';
+                setMemory(memory + solveExpr(inputText));
                 break;
 
             case "M-":
-                newExpr = '';
-                newResult = '';
+                setMemory(memory - solveExpr(inputText));
                 break;
 
             case "RM":
-                newExpr = '';
-                newResult = '';
+                newExpr = memory.toString();
+                newResult = memory.toString();
                 break;
 
             case "MC":
-                newExpr = '';
-                newResult = '';
+                setMemory(0);
                 break;
 
             default:
                 newExpr = inputText + char;
-                newResult = solveExpr(newExpr);
+                newResult = solveExpr(newExpr).toString();
                 break;
         }
 

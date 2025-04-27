@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useState } from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
 import CalculatorKeyboard from './components/CalculatorKeyboard';
 import CalculatorDisplay from './components/CalculatorDisplay';
@@ -30,7 +30,6 @@ export default App = () => {
     }
 
     const postFixExpr = toPostFixNotation(tokenizedExpr);
-    console.log(postFixExpr);
     const result = calculatePostFix(postFixExpr);
     return result;
   }
@@ -41,7 +40,7 @@ export default App = () => {
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="light-content" backgroundColor="black" />
       <CalculatorDisplay inputText={inputText} resultText={resultText} />
-      <CalculatorKeyboard inputText={inputText} setInputText={setInputText} setResultText={setResultText} solveExpr={solveExpr} />
+      <CalculatorKeyboard inputText={inputText} setInputText={setInputText} resultText={resultText} setResultText={setResultText} solveExpr={solveExpr} memory={memory} setMemory={setMemory} />
     </SafeAreaView>
   );
 }
